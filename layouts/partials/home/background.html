@@ -1,0 +1,170 @@
+{{/*
+  Custom homepage layout for Dzongsar Institute.
+  Order: hero + CTAs → programs grid → about block → upcoming events (if any)
+         → recent news → Facebook → bottom links.
+  Section titles come from each linked page's front-matter, so translations
+  follow the page. Static labels live in site/i18n/{lang}.toml under [home.*].
+*/}}
+
+{{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
+<article class="prose dark:prose-invert max-w-full">
+  {{/* ---------- Hero: background image + title + content ---------- */}}
+  <div class="relative">
+    <div class="mx-auto max-w-7xl p-0">
+      <div class="relative sm:overflow-hidden">
+        <div class="fixed inset-x-0 top-0 -z-10">
+          {{ $homepageImage := "" }}
+          {{ with .Site.Params.defaultBackgroundImage }}
+            {{ $homepageImage = resources.Get . }}
+          {{ end }}
+          {{ if $homepageImage }}
+            <img
+              id="background-image"
+              class="nozoom mt-0 mr-0 mb-0 ml-0 h-[1000px] w-full object-cover"
+              src="{{ $homepageImage.RelPermalink }}"
+              role="presentation">
+            <div class="from-neutral absolute inset-0 h-[1000px] bg-gradient-to-t to-transparent mix-blend-normal dark:from-neutral-800"></div>
+            <div class="from-neutral absolute inset-0 h-[1000px] bg-gradient-to-t to-neutral-100 opacity-60 mix-blend-normal dark:from-neutral-800 dark:to-neutral-800"></div>
+          {{ end }}
+        </div>
+
+        <div class="home-hero-inner relative flex flex-col items-center justify-center px-4 text-center">
+          <h1 class="mb-2 text-4xl font-extrabold text-neutral-800 dark:text-neutral-200">
+            {{ .Site.Title }}
+          </h1>
+          <section class="prose dark:prose-invert w-full max-w-3xl">{{ .Content }}</section>
+
+          {{/* ---------- Primary CTAs ---------- */}}
+          {{ $admission := site.GetPage "/connect/admission" }}
+          {{ $academics := site.GetPage "/academics" }}
+          {{ $history   := site.GetPage "/about/history" }}
+          <div class="home-cta-row">
+            {{ with $admission }}<a class="home-cta" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+            {{ with $academics }}<a class="home-cta" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+            {{ with $history }}<a class="home-cta" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{/* ---------- Academic programs grid (curated: Shedra, Rigne, Kanishka) ---------- */}}
+  {{ $academics := site.GetPage "/academics" }}
+  {{ with $academics }}
+    <section class="home-section">
+      <h2 class="home-section-title"><a href="{{ .RelPermalink }}">{{ i18n "home_programs" | default "Academic Programs" }}</a></h2>
+      <div class="home-grid home-grid-3">
+        {{ range slice "/academics/shedra" "/academics/rigne" "/academics/kanishka" }}
+          {{ with site.GetPage . }}
+            <a class="home-tile" href="{{ .RelPermalink }}">
+              {{ with .Resources.GetMatch "*featured*" }}
+                <div class="home-tile-img" style="background-image:url('{{ .RelPermalink }}');"></div>
+              {{ else }}
+                <div class="home-tile-img home-tile-img-placeholder"></div>
+              {{ end }}
+              <div class="home-tile-body">
+                <h3>{{ .Title }}</h3>
+                {{ with .Params.summary | default .Description }}<p>{{ . }}</p>{{ end }}
+              </div>
+            </a>
+          {{ end }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------- About block (2-col) ---------- */}}
+  {{ $about := site.GetPage "/about" }}
+  {{ $aboutHistory := site.GetPage "/about/history" }}
+  {{ with $about }}
+    <section class="home-section home-about">
+      <div class="home-about-text">
+        <h2 class="home-section-title">{{ .Title }}</h2>
+        {{ with .Description | default .Summary }}<p>{{ . | safeHTML }}</p>{{ end }}
+        <p>
+          <a class="home-link" href="{{ .RelPermalink }}">{{ i18n "home_read_more" | default "Read more" }} →</a>
+        </p>
+      </div>
+      <div class="home-about-img">
+        {{ $img := .Resources.GetMatch "*featured*" }}
+        {{ if not $img }}{{ with $aboutHistory }}{{ $img = .Resources.GetMatch "*featured*" }}{{ end }}{{ end }}
+        {{ with $img }}<img src="{{ .RelPermalink }}" alt="">{{ end }}
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------- Upcoming events (only if non-empty) ---------- */}}
+  {{ $events := site.GetPage "/news-events/upcoming-events" }}
+  {{ with $events }}
+    {{ $list := .Pages.ByDate }}
+    {{ if gt (len $list) 0 }}
+      <section class="home-section">
+        <h2 class="home-section-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <ul class="home-event-list">
+          {{ range first 4 $list }}
+            <li>
+              <a href="{{ .RelPermalink }}">
+                <span class="home-event-date">{{ .Date.Format (.Site.Params.dateFormat | default "2 January 2006") }}</span>
+                <span class="home-event-title">{{ .Title }}</span>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </section>
+    {{ end }}
+  {{ end }}
+
+  {{/* ---------- Recent news (uses mainSections = news-events) ---------- */}}
+  <section class="home-section">
+    {{ partial "recent-articles/main.html" . }}
+  </section>
+
+  {{/* ---------- Facebook page feed ---------- */}}
+  <section class="home-section home-facebook">
+    <h2 class="home-section-title">{{ i18n "home_facebook" | default "From Facebook" }}</h2>
+    <div class="home-fb-wrap">
+      <div id="fb-root"></div>
+      <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"></script>
+      <div class="fb-page my-6"
+           data-href="https://www.facebook.com/DzongsarChokyiLodroInstitute/"
+           data-tabs="timeline"
+           data-width="500"
+           data-height="500"
+           data-small-header="true"
+           data-adapt-container-width="true"
+           data-hide-cover="false"
+           data-show-facepile="true">
+        <blockquote cite="https://www.facebook.com/DzongsarChokyiLodroInstitute/" class="fb-xfbml-parse-ignore">
+          <a href="https://www.facebook.com/DzongsarChokyiLodroInstitute/">Dzongsar Khyentse Chökyi Lodrö Institute on Facebook</a>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  {{/* ---------- Bottom links row ---------- */}}
+  <section class="home-section home-bottom-links">
+    {{ $contact      := site.GetPage "/connect/contact" }}
+    {{ $contribute   := site.GetPage "/connect/contribute" }}
+    {{ $dharma       := site.GetPage "/about/dharma-centres" }}
+    <div class="home-bottom-grid">
+      {{ with $contact }}<a class="home-bottom-tile" href="{{ .RelPermalink }}"><h3>{{ .Title }}</h3></a>{{ end }}
+      {{ with $contribute }}<a class="home-bottom-tile" href="{{ .RelPermalink }}"><h3>{{ .Title }}</h3></a>{{ end }}
+      {{ with $dharma }}<a class="home-bottom-tile" href="{{ .RelPermalink }}"><h3>{{ .Title }}</h3></a>{{ end }}
+    </div>
+  </section>
+</article>
+
+{{ if .Site.Params.homepage.layoutBackgroundBlur | default false }}
+  <div
+    id="background-blur"
+    class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
+  {{ $backgroundBlur := resources.Get "js/background-blur.js" }}
+  {{ $backgroundBlur = $backgroundBlur | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
+  <script
+    type="text/javascript"
+    src="{{ $backgroundBlur.RelPermalink }}"
+    integrity="{{ $backgroundBlur.Data.Integrity }}"
+    data-blur-id="background-blur"
+    data-image-id="background-image"></script>
+{{ end }}

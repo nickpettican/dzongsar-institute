@@ -1,0 +1,136 @@
+{{/* Tibetan + Chinese font support — loaded for all pages, language-aware via :lang() */}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tibetan:wght@400;600&family=Noto+Sans+Tibetan:wght@400;600&family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --font-tibetan: "Noto Serif Tibetan", "Noto Sans Tibetan", serif; }
+  html[lang="bo"], html[lang="bo"] body,
+  *:lang(bo) { font-family: var(--font-tibetan), system-ui, sans-serif; line-height: 1.9; }
+  html[lang="zh"], html[lang="zh"] body { font-family: "Noto Serif TC", "Noto Sans TC", "PingFang TC", system-ui, sans-serif; }
+  .auto-translation-banner {
+    background: #fff8e1;
+    border-left: 4px solid #f59e0b;
+    color: #78350f;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0 1.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  .dark .auto-translation-banner {
+    background: #422006;
+    color: #fde68a;
+    border-left-color: #f59e0b;
+  }
+  /* Stacked photo+text rows (used by consolidated abbots page etc.) */
+  .abbot-row { margin: 2.5rem 0 3rem; }
+  .abbot-row .abbot-photo { margin: 1rem auto 1.5rem; max-width: 260px; }
+  .abbot-row .abbot-photo img { width: 100%; height: auto; border-radius: 6px; display: block; }
+  .abbot-row + .abbot-row { border-top: 1px solid rgba(127,127,127,0.2); padding-top: 2rem; }
+
+  /* ===== Homepage layout ===== */
+  /* Hero: more breathing room above the CTAs, tighter under the H1 */
+  .home-hero-inner { padding-top: 2.5rem; padding-bottom: 1rem; }
+  .home-hero-inner h1 { margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+  .home-hero-inner .prose { margin-bottom: 1.75rem; }
+
+  .home-cta-row {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;
+    margin: 1.25rem 0 4rem;
+  }
+  .home-cta {
+    display: inline-block;
+    padding: 0.65rem 1.4rem;
+    border-radius: 6px;
+    background: rgba(180, 70, 50, 0.92);
+    color: #fff !important;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .home-cta:hover { background: rgba(140, 50, 35, 1); transform: translateY(-1px); }
+  .dark .home-cta { background: rgba(200, 90, 70, 0.92); }
+
+  .home-section { max-width: 72rem; margin: 4.5rem auto; padding: 0 1.25rem; }
+  .home-section + .home-section { margin-top: 4.5rem; }
+  .home-section-title {
+    font-size: 1.75rem; font-weight: 700; margin: 0 0 1.75rem;
+    border-bottom: 2px solid rgba(180, 70, 50, 0.4);
+    padding-bottom: 0.5rem;
+    letter-spacing: -0.005em;
+  }
+  .home-section-title a { color: inherit; text-decoration: none; }
+  .home-section-title a:hover { color: rgba(180, 70, 50, 1); }
+
+  .home-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  /* Curated 3-card grid (Academic Programs) */
+  .home-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 720px) { .home-grid-3 { grid-template-columns: 1fr; } }
+  .home-tile {
+    display: flex; flex-direction: column;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none !important;
+    color: inherit !important;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .dark .home-tile { background: rgba(40,40,40,0.85); border-color: rgba(255,255,255,0.08); }
+  .home-tile:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+  .home-tile-img {
+    width: 100%; aspect-ratio: 4/3;
+    background-size: cover; background-position: center;
+    background-color: #ddd;
+  }
+  .home-tile-img-placeholder { background: linear-gradient(135deg, #c9a87a, #8a6a3f); }
+  .home-tile-body { padding: 0.85rem 1rem 1rem; }
+  .home-tile-body h3 { margin: 0 0 0.35rem; font-size: 1.1rem; font-weight: 600; }
+  .home-tile-body p { margin: 0; font-size: 0.92rem; opacity: 0.85; }
+
+  .home-about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 2.5rem; align-items: center; }
+  .home-about-img img { width: 100%; height: auto; border-radius: 8px; }
+  .home-about-text p { font-size: 1.02rem; line-height: 1.7; }
+  .home-link { color: rgba(180,70,50,1); font-weight: 600; text-decoration: none; }
+  .home-link:hover { text-decoration: underline; }
+  @media (max-width: 720px) {
+    .home-about { grid-template-columns: 1fr; }
+    .home-about-img { order: -1; }
+  }
+
+  .home-event-list { list-style: none; padding: 0; margin: 0; }
+  .home-event-list li { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .dark .home-event-list li { border-color: rgba(255,255,255,0.08); }
+  .home-event-list a {
+    display: flex; gap: 1rem; padding: 0.75rem 0;
+    text-decoration: none; color: inherit;
+  }
+  .home-event-list a:hover .home-event-title { color: rgba(180,70,50,1); }
+  .home-event-date {
+    flex: 0 0 11rem; font-variant-numeric: tabular-nums; opacity: 0.7;
+  }
+  .home-event-title { font-weight: 500; }
+
+  .home-facebook .home-fb-wrap { display: flex; justify-content: center; }
+
+  .home-bottom-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  .home-bottom-tile {
+    display: block; padding: 1.25rem 1rem; text-align: center;
+    background: rgba(180,70,50,0.08);
+    border-radius: 8px;
+    text-decoration: none !important;
+    color: inherit !important;
+    transition: background 0.15s;
+  }
+  .home-bottom-tile:hover { background: rgba(180,70,50,0.16); }
+  .dark .home-bottom-tile { background: rgba(200,90,70,0.12); }
+  .home-bottom-tile h3 { margin: 0; font-size: 1.05rem; font-weight: 600; }
+</style>
+
+{{/* FB SDK is loaded by the fb-page shortcode itself, only on pages that use it. */}}

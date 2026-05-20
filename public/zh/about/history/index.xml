@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>歷史 on 宗薩佛學院</title>
+    <link>http://localhost:1313/zh/about/history/</link>
+    <description>Recent content in 歷史 on 宗薩佛學院</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2026 Unofficial Dzongsar Institute Website</copyright>
+    <lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/zh/about/history/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>法教傳承</title>
+      <link>http://localhost:1313/zh/about/history/teaching-lineage/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/zh/about/history/teaching-lineage/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>在西藏</title>
+      <link>http://localhost:1313/zh/about/history/in-tibet/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/zh/about/history/in-tibet/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/en/about/history/in-tibet/featured.jpg" />
+    </item>
+    
+    <item>
+      <title>在印度</title>
+      <link>http://localhost:1313/zh/about/history/in-india/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/zh/about/history/in-india/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/en/about/history/in-india/featured.jpg" />
+    </item>
+    
+  </channel>
+</rss>

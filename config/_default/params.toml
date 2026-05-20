@@ -1,0 +1,61 @@
+colorScheme = "blowfish"
+defaultAppearance = "light"
+autoSwitchAppearance = true
+
+enableSearch = true
+enableCodeCopy = true
+enableStructuredBreadcrumbs = true
+
+mainSections = ["news-events"]
+copyright = "&copy; { year } Unofficial Dzongsar Institute Website"
+
+disableImageOptimization = false
+fingerprintAlgorithm = "sha512"
+
+defaultBackgroundImage = "img/dzongsar-background.jpg"
+defaultFeaturedImage = "img/kunga-wangchuk.jpg"
+
+[header]
+  layout = "fixed-gradient"
+
+[footer]
+  showMenu = true
+  showCopyright = true
+  showThemeAttribution = false
+  showAppearanceSwitcher = true
+  showScrollToTop = true
+
+[homepage]
+  layout = "background"
+  layoutBackgroundBlur = true
+  showRecent = true
+  showRecentItems = 8
+  showMoreLink = true
+  showMoreLinkDest = "news-events"
+  cardView = true
+
+[article]
+  showDate = true
+  showAuthor = false
+  showHero = true
+  heroStyle = "background"
+  showBreadcrumbs = true
+  showEdit = false
+  showHeadingAnchors = true
+  showPagination = true
+  showReadingTime = false
+  showTableOfContents = true
+  showRelatedContent = true
+  relatedContentLimit = 6
+  showTaxonomies = false
+  sharingLinks = ["facebook", "email"]
+
+[list]
+  showHero = false
+  showBreadcrumbs = true
+  showSummary = true
+  showCards = true
+  groupByYear = false
+
+[sitemap]
+  excludedKinds = []

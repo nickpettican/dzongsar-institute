@@ -1,0 +1,167 @@
+[[main]]
+  name = "མདུན་ངོས།"
+  pageRef = "/"
+  weight = 10
+
+[[main]]
+  identifier = "academics"
+  name = "སློབ་གཉེར།"
+  pageRef = "academics"
+  weight = 20
+
+[[main]]
+  parent = "academics"
+  name = "བཤད་གྲྭ།"
+  pageRef = "academics/shedra"
+  weight = 1
+[[main]]
+  parent = "academics"
+  name = "རིག་གནས་རབ་འབྱམས་པ།"
+  pageRef = "academics/rigne"
+  weight = 2
+[[main]]
+  parent = "academics"
+  name = "རྒྱུད་སྡེ།"
+  pageRef = "academics/tantra"
+  weight = 3
+[[main]]
+  parent = "academics"
+  name = "སློབ་གྲྭ་ཀནིཥྐ།"
+  pageRef = "academics/kanishka"
+  weight = 4
+[[main]]
+  parent = "academics"
+  name = "དཔེ་ཁྲིད་དགེ་རྒན།"
+  pageRef = "academics/teachers"
+  weight = 5
+[[main]]
+  parent = "academics"
+  name = "ཟབ་སྦྱོང་།"
+  pageRef = "academics/training"
+  weight = 6
+
+[[main]]
+  identifier = "about"
+  name = "བཤད་གྲྭའི་སྐོར།"
+  pageRef = "about"
+  weight = 30
+
+[[main]]
+  parent = "about"
+  name = "དམིགས་ཡུལ།"
+  pageRef = "about/mission"
+  weight = 1
+[[main]]
+  parent = "about"
+  name = "ལོ་རྒྱུས།"
+  pageRef = "about/history"
+  weight = 2
+[[main]]
+  parent = "about"
+  name = "སྲོལ་འབྱེད་མཁྱེན་བརྩེ་ཆོས་ཀྱི་བློ་གྲོས།"
+  pageRef = "about/founder"
+  weight = 3
+[[main]]
+  parent = "about"
+  name = "འགན་འཛིན་ལས་ཐོག"
+  pageRef = "about/leadership"
+  weight = 4
+[[main]]
+  parent = "about"
+  name = "སྡེ་ཚན།"
+  pageRef = "about/departments"
+  weight = 5
+[[main]]
+  parent = "about"
+  name = "དཔེ་མཛོད།"
+  pageRef = "about/library-and-catalogue"
+  weight = 6
+[[main]]
+  parent = "about"
+  name = "རྩོམ་སྒྲིག"
+  pageRef = "about/editorial-department"
+  weight = 7
+[[main]]
+  parent = "about"
+  name = "ཞིབ་འཇུག"
+  pageRef = "about/research-department"
+  weight = 8
+[[main]]
+  parent = "about"
+  name = "སྐད་ཡིག"
+  pageRef = "about/language-department"
+  weight = 9
+[[main]]
+  parent = "about"
+  name = "མཐུན་རྐྱེན།"
+  pageRef = "about/facilities"
+  weight = 10
+[[main]]
+  parent = "about"
+  name = "ཆོས་ཚོགས།"
+  pageRef = "about/dharma-centres"
+  weight = 11
+
+[[main]]
+  identifier = "connect"
+  name = "འབྲེལ་མཐུད།"
+  pageRef = "connect"
+  weight = 40
+
+[[main]]
+  parent = "connect"
+  name = "འབྲེལ་གཏུགས།"
+  pageRef = "connect/contact"
+  weight = 1
+[[main]]
+  parent = "connect"
+  name = "སློབ་འཛུལ།"
+  pageRef = "connect/admission"
+  weight = 2
+[[main]]
+  parent = "connect"
+  name = "ཞལ་འདེབས་འབུལ།"
+  pageRef = "connect/contribute"
+  weight = 3
+[[main]]
+  parent = "connect"
+  name = "ཞབས་རིམ་དང་མཆོད་འབུལ།"
+  pageRef = "connect/prayers-and-offerings"
+  weight = 4
+[[main]]
+  parent = "connect"
+  name = "བརྡ་ལམ་དང་ཐོན་ཁུངས།"
+  pageRef = "connect/media-and-resource"
+  weight = 5
+[[main]]
+  parent = "connect"
+  name = "ནང་འབྲེལ་དྲ་གནས།"
+  pageRef = "connect/intranet"
+  weight = 6
+
+[[main]]
+  identifier = "news-events"
+  name = "གསར་འགྱུར།"
+  pageRef = "news-events"
+  weight = 50
+
+[[main]]
+  parent = "news-events"
+  name = "ཉེ་དུས་ཀྱི་གསར་འགྱུར།"
+  pageRef = "news-events/recent-news"
+  weight = 1
+[[main]]
+  parent = "news-events"
+  name = "གསལ་བསྒྲགས།"
+  pageRef = "news-events/announcements"
+  weight = 2
+[[main]]
+  parent = "news-events"
+  name = "མི་འོངས་པའི་མཛད་སྒོ།"
+  pageRef = "news-events/upcoming-events"
+  weight = 3
+[[main]]
+  parent = "news-events"
+  name = "ལོ་ཐོ།"
+  pageRef = "news-events/calendar"
+  weight = 4

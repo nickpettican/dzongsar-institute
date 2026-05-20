@@ -1,0 +1,12 @@
+locale = "bo"
+label = "བོད་ཡིག"
+weight = 1
+title = "རྫོང་གསར་བཤད་གྲྭ།"
+contentDir = "content/bo"
+
+[params]
+  displayName = "བོད་ཡིག"
+  isoCode = "bo"
+  rtl = false
+  dateFormat = "2006-01-02"
+  description = "Dzongsar Khyentse Chökyi Lodrö Institute"

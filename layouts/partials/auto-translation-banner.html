@@ -1,0 +1,15 @@
+{{ if .Params.auto_translated }}
+<div class="auto-translation-banner" role="note">
+  {{ i18n "auto_translated_banner" | default "This page was automatically translated and is awaiting human review. Refer to the original for authoritative content." }}
+  {{ with .Params.translation_source }}
+    {{ $source := . }}
+    {{ with $.Translations }}
+      {{ range . }}
+        {{ if eq .Lang $source }}
+          — <a href="{{ .RelPermalink }}">{{ i18n "view_original" | default "View original" }}</a>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}

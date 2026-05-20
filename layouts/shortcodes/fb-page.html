@@ -1,0 +1,31 @@
+{{/*
+  Facebook Page Plugin embed.
+  Usage in Markdown:
+    {{< fb-page tabs="timeline" height="700" >}}
+  Defaults below match the Dzongsar Institute FB page.
+*/}}
+{{ $url := .Get "url" | default "https://www.facebook.com/DzongsarChokyiLodroInstitute/" }}
+{{ $tabs := .Get "tabs" | default "timeline" }}
+{{ $width := .Get "width" | default "500" }}
+{{ $height := .Get "height" | default "700" }}
+{{ $smallHeader := .Get "smallHeader" | default "true" }}
+{{ $hideCover := .Get "hideCover" | default "false" }}
+{{ $showFacepile := .Get "showFacepile" | default "true" }}
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"></script>
+
+<div class="fb-page my-6"
+     data-href="{{ $url }}"
+     data-tabs="{{ $tabs }}"
+     data-width="{{ $width }}"
+     data-height="{{ $height }}"
+     data-small-header="{{ $smallHeader }}"
+     data-adapt-container-width="true"
+     data-hide-cover="{{ $hideCover }}"
+     data-show-facepile="{{ $showFacepile }}">
+  <blockquote cite="{{ $url }}" class="fb-xfbml-parse-ignore">
+    <a href="{{ $url }}">Dzongsar Khyentse Chökyi Lodrö Institute on Facebook</a>
+  </blockquote>
+</div>

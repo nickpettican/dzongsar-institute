@@ -1,0 +1,21 @@
+# Hugo build output
+site/public/
+site/resources/
+.hugo_build.lock
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Don't ship the raw scrape — keep locally for re-runs
+# (comment out if you want to commit it)
+# scrape/

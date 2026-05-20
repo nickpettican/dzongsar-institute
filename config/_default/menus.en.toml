@@ -1,0 +1,167 @@
+[[main]]
+  name = "Home"
+  pageRef = "/"
+  weight = 10
+
+[[main]]
+  identifier = "academics"
+  name = "Academics"
+  pageRef = "academics"
+  weight = 20
+
+[[main]]
+  parent = "academics"
+  name = "Shedra (BA/MA)"
+  pageRef = "academics/shedra"
+  weight = 1
+[[main]]
+  parent = "academics"
+  name = "Rigne (post-graduate)"
+  pageRef = "academics/rigne"
+  weight = 2
+[[main]]
+  parent = "academics"
+  name = "Tantra studies"
+  pageRef = "academics/tantra"
+  weight = 3
+[[main]]
+  parent = "academics"
+  name = "Kanishka School"
+  pageRef = "academics/kanishka"
+  weight = 4
+[[main]]
+  parent = "academics"
+  name = "Faculty"
+  pageRef = "academics/teachers"
+  weight = 5
+[[main]]
+  parent = "academics"
+  name = "Training & workshops"
+  pageRef = "academics/training"
+  weight = 6
+
+[[main]]
+  identifier = "about"
+  name = "About"
+  pageRef = "about"
+  weight = 30
+
+[[main]]
+  parent = "about"
+  name = "Vision"
+  pageRef = "about/mission"
+  weight = 1
+[[main]]
+  parent = "about"
+  name = "History"
+  pageRef = "about/history"
+  weight = 2
+[[main]]
+  parent = "about"
+  name = "Founder"
+  pageRef = "about/founder"
+  weight = 3
+[[main]]
+  parent = "about"
+  name = "Leadership"
+  pageRef = "about/leadership"
+  weight = 4
+[[main]]
+  parent = "about"
+  name = "Departments"
+  pageRef = "about/departments"
+  weight = 5
+[[main]]
+  parent = "about"
+  name = "Library"
+  pageRef = "about/library-and-catalogue"
+  weight = 6
+[[main]]
+  parent = "about"
+  name = "Editorial Section"
+  pageRef = "about/editorial-department"
+  weight = 7
+[[main]]
+  parent = "about"
+  name = "Research"
+  pageRef = "about/research-department"
+  weight = 8
+[[main]]
+  parent = "about"
+  name = "Language"
+  pageRef = "about/language-department"
+  weight = 9
+[[main]]
+  parent = "about"
+  name = "Facilities"
+  pageRef = "about/facilities"
+  weight = 10
+[[main]]
+  parent = "about"
+  name = "Dharma centers"
+  pageRef = "about/dharma-centres"
+  weight = 11
+
+[[main]]
+  identifier = "connect"
+  name = "Connect"
+  pageRef = "connect"
+  weight = 40
+
+[[main]]
+  parent = "connect"
+  name = "Contact"
+  pageRef = "connect/contact"
+  weight = 1
+[[main]]
+  parent = "connect"
+  name = "Admission"
+  pageRef = "connect/admission"
+  weight = 2
+[[main]]
+  parent = "connect"
+  name = "Donation"
+  pageRef = "connect/contribute"
+  weight = 3
+[[main]]
+  parent = "connect"
+  name = "Prayers & offerings"
+  pageRef = "connect/prayers-and-offerings"
+  weight = 4
+[[main]]
+  parent = "connect"
+  name = "Media & Resources"
+  pageRef = "connect/media-and-resource"
+  weight = 5
+[[main]]
+  parent = "connect"
+  name = "Intranet"
+  pageRef = "connect/intranet"
+  weight = 6
+
+[[main]]
+  identifier = "news-events"
+  name = "News & Events"
+  pageRef = "news-events"
+  weight = 50
+
+[[main]]
+  parent = "news-events"
+  name = "Recent news"
+  pageRef = "news-events/recent-news"
+  weight = 1
+[[main]]
+  parent = "news-events"
+  name = "Announcements"
+  pageRef = "news-events/announcements"
+  weight = 2
+[[main]]
+  parent = "news-events"
+  name = "Upcoming events"
+  pageRef = "news-events/upcoming-events"
+  weight = 3
+[[main]]
+  parent = "news-events"
+  name = "Calendar"
+  pageRef = "news-events/calendar"
+  weight = 4

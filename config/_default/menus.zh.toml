@@ -1,0 +1,167 @@
+[[main]]
+  name = "首頁"
+  pageRef = "/"
+  weight = 10
+
+[[main]]
+  identifier = "academics"
+  name = "學術"
+  pageRef = "academics"
+  weight = 20
+
+[[main]]
+  parent = "academics"
+  name = "顯密佛學院（學士／碩士）"
+  pageRef = "academics/shedra"
+  weight = 1
+[[main]]
+  parent = "academics"
+  name = "明處研究院（博士後）"
+  pageRef = "academics/rigne"
+  weight = 2
+[[main]]
+  parent = "academics"
+  name = "密續課程"
+  pageRef = "academics/tantra"
+  weight = 3
+[[main]]
+  parent = "academics"
+  name = "小學"
+  pageRef = "academics/kanishka"
+  weight = 4
+[[main]]
+  parent = "academics"
+  name = "教職人員"
+  pageRef = "academics/teachers"
+  weight = 5
+[[main]]
+  parent = "academics"
+  name = "培訓"
+  pageRef = "academics/training"
+  weight = 6
+
+[[main]]
+  identifier = "about"
+  name = "關於我們"
+  pageRef = "about"
+  weight = 30
+
+[[main]]
+  parent = "about"
+  name = "我們的願景"
+  pageRef = "about/mission"
+  weight = 1
+[[main]]
+  parent = "about"
+  name = "歷史"
+  pageRef = "about/history"
+  weight = 2
+[[main]]
+  parent = "about"
+  name = "創建者"
+  pageRef = "about/founder"
+  weight = 3
+[[main]]
+  parent = "about"
+  name = "領導層"
+  pageRef = "about/leadership"
+  weight = 4
+[[main]]
+  parent = "about"
+  name = "單位"
+  pageRef = "about/departments"
+  weight = 5
+[[main]]
+  parent = "about"
+  name = "圖書館"
+  pageRef = "about/library-and-catalogue"
+  weight = 6
+[[main]]
+  parent = "about"
+  name = "編輯部"
+  pageRef = "about/editorial-department"
+  weight = 7
+[[main]]
+  parent = "about"
+  name = "研究部"
+  pageRef = "about/research-department"
+  weight = 8
+[[main]]
+  parent = "about"
+  name = "語文部"
+  pageRef = "about/language-department"
+  weight = 9
+[[main]]
+  parent = "about"
+  name = "設施"
+  pageRef = "about/facilities"
+  weight = 10
+[[main]]
+  parent = "about"
+  name = "佛法中心"
+  pageRef = "about/dharma-centres"
+  weight = 11
+
+[[main]]
+  identifier = "connect"
+  name = "聯繫我們"
+  pageRef = "connect"
+  weight = 40
+
+[[main]]
+  parent = "connect"
+  name = "聯繫方式"
+  pageRef = "connect/contact"
+  weight = 1
+[[main]]
+  parent = "connect"
+  name = "入學申請"
+  pageRef = "connect/admission"
+  weight = 2
+[[main]]
+  parent = "connect"
+  name = "護持與供養"
+  pageRef = "connect/contribute"
+  weight = 3
+[[main]]
+  parent = "connect"
+  name = "法事與供養"
+  pageRef = "connect/prayers-and-offerings"
+  weight = 4
+[[main]]
+  parent = "connect"
+  name = "媒體與資源"
+  pageRef = "connect/media-and-resource"
+  weight = 5
+[[main]]
+  parent = "connect"
+  name = "內部網路"
+  pageRef = "connect/intranet"
+  weight = 6
+
+[[main]]
+  identifier = "news-events"
+  name = "新聞與活動"
+  pageRef = "news-events"
+  weight = 50
+
+[[main]]
+  parent = "news-events"
+  name = "近期新聞"
+  pageRef = "news-events/recent-news"
+  weight = 1
+[[main]]
+  parent = "news-events"
+  name = "公告"
+  pageRef = "news-events/announcements"
+  weight = 2
+[[main]]
+  parent = "news-events"
+  name = "近期活動"
+  pageRef = "news-events/upcoming-events"
+  weight = 3
+[[main]]
+  parent = "news-events"
+  name = "行事曆"
+  pageRef = "news-events/calendar"
+  weight = 4
