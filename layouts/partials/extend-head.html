@@ -1,25 +1,57 @@
 {{/* Tibetan + Chinese font support — loaded for all pages, language-aware via :lang() */}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tibetan:wght@400;600&family=Noto+Sans+Tibetan:wght@400;600&family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Noto+Serif+Tibetan:wght@400;600&family=Noto+Sans+Tibetan:wght@400;600&family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  :root { --font-tibetan: "Noto Serif Tibetan", "Noto Sans Tibetan", serif; }
+  :root {
+    --font-tibetan: "Noto Serif Tibetan", "Noto Sans Tibetan", serif;
+    --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  }
+
+  /* Latin (English) — serif headings, Inter body */
+  html[lang="en"] body { font-family: var(--font-sans); }
+  html[lang="en"] h1,
+  html[lang="en"] h2,
+  html[lang="en"] h3,
+  html[lang="en"] h4 { font-family: var(--font-serif); letter-spacing: -0.005em; }
+
+  /* Tibetan + Chinese — keep Noto fonts (must come after the en rules) */
   html[lang="bo"], html[lang="bo"] body,
   *:lang(bo) { font-family: var(--font-tibetan), system-ui, sans-serif; line-height: 1.9; }
+  *:lang(bo) h1, *:lang(bo) h2, *:lang(bo) h3, *:lang(bo) h4 {
+    font-family: var(--font-tibetan), serif; line-height: 1.6;
+  }
   html[lang="zh"], html[lang="zh"] body { font-family: "Noto Serif TC", "Noto Sans TC", "PingFang TC", system-ui, sans-serif; }
+  *:lang(zh) h1, *:lang(zh) h2, *:lang(zh) h3, *:lang(zh) h4 {
+    font-family: "Noto Serif TC", "PingFang TC", serif;
+  }
+
+  /* Heading size bump (~12%). Body sizing left untouched. */
+  h1 { font-size: clamp(2rem, 4vw, 2.75rem); }
+  h2 { font-size: 1.875rem; }
+  h3 { font-size: 1.5rem; }
+  /* Tibetan stacked vowels need a touch more room at the new sizes */
+  *:lang(bo) h1 { font-size: clamp(2.1rem, 4.2vw, 2.9rem); }
+  *:lang(bo) h2 { font-size: 2rem; }
+  *:lang(bo) h3 { font-size: 1.6rem; }
+
+  /* Nav bump (~10%) — Blowfish renders top menu as .menu */
+  .menu a, nav#main-nav a { font-size: 1.05rem; }
+
   .auto-translation-banner {
-    background: #fff8e1;
-    border-left: 4px solid #f59e0b;
-    color: #78350f;
+    background: rgb(var(--color-secondary-100));
+    border-left: 4px solid rgb(var(--color-secondary-500));
+    color: rgb(var(--color-secondary-800));
     padding: 0.75rem 1rem;
     margin: 1rem 0 1.5rem;
     border-radius: 4px;
     font-size: 0.9rem;
   }
   .dark .auto-translation-banner {
-    background: #422006;
-    color: #fde68a;
-    border-left-color: #f59e0b;
+    background: rgb(var(--color-secondary-800));
+    color: rgb(var(--color-secondary-100));
+    border-left-color: rgb(var(--color-secondary-400));
   }
   /* Stacked photo+text rows (used by consolidated abbots page etc.) */
   .abbot-row { margin: 2.5rem 0 3rem; }
@@ -41,25 +73,27 @@
     display: inline-block;
     padding: 0.65rem 1.4rem;
     border-radius: 6px;
-    background: rgba(180, 70, 50, 0.92);
+    background: rgb(var(--color-primary-600));
     color: #fff !important;
     font-weight: 600;
     text-decoration: none !important;
     transition: background 0.15s, transform 0.15s;
   }
-  .home-cta:hover { background: rgba(140, 50, 35, 1); transform: translateY(-1px); }
-  .dark .home-cta { background: rgba(200, 90, 70, 0.92); }
+  .home-cta:hover { background: rgb(var(--color-primary-700)); transform: translateY(-1px); }
+  .dark .home-cta { background: rgb(var(--color-primary-500)); }
+  .dark .home-cta:hover { background: rgb(var(--color-primary-400)); }
 
   .home-section { max-width: 72rem; margin: 4.5rem auto; padding: 0 1.25rem; }
   .home-section + .home-section { margin-top: 4.5rem; }
   .home-section-title {
-    font-size: 1.75rem; font-weight: 700; margin: 0 0 1.75rem;
-    border-bottom: 2px solid rgba(180, 70, 50, 0.4);
+    font-size: 1.95rem; font-weight: 700; margin: 0 0 1.75rem;
+    border-bottom: 2px solid rgba(var(--color-primary-600), 0.45);
     padding-bottom: 0.5rem;
     letter-spacing: -0.005em;
   }
   .home-section-title a { color: inherit; text-decoration: none; }
-  .home-section-title a:hover { color: rgba(180, 70, 50, 1); }
+  .home-section-title a:hover { color: rgb(var(--color-primary-600)); }
+  .dark .home-section-title a:hover { color: rgb(var(--color-primary-400)); }
 
   .home-grid {
     display: grid;
@@ -94,7 +128,8 @@
   .home-about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 2.5rem; align-items: center; }
   .home-about-img img { width: 100%; height: auto; border-radius: 8px; }
   .home-about-text p { font-size: 1.02rem; line-height: 1.7; }
-  .home-link { color: rgba(180,70,50,1); font-weight: 600; text-decoration: none; }
+  .home-link { color: rgb(var(--color-primary-600)); font-weight: 600; text-decoration: none; }
+  .dark .home-link { color: rgb(var(--color-primary-400)); }
   .home-link:hover { text-decoration: underline; }
   @media (max-width: 720px) {
     .home-about { grid-template-columns: 1fr; }
@@ -108,7 +143,8 @@
     display: flex; gap: 1rem; padding: 0.75rem 0;
     text-decoration: none; color: inherit;
   }
-  .home-event-list a:hover .home-event-title { color: rgba(180,70,50,1); }
+  .home-event-list a:hover .home-event-title { color: rgb(var(--color-primary-600)); }
+  .dark .home-event-list a:hover .home-event-title { color: rgb(var(--color-primary-400)); }
   .home-event-date {
     flex: 0 0 11rem; font-variant-numeric: tabular-nums; opacity: 0.7;
   }
@@ -122,14 +158,15 @@
   }
   .home-bottom-tile {
     display: block; padding: 1.25rem 1rem; text-align: center;
-    background: rgba(180,70,50,0.08);
+    background: rgba(var(--color-primary-600), 0.08);
     border-radius: 8px;
     text-decoration: none !important;
     color: inherit !important;
     transition: background 0.15s;
   }
-  .home-bottom-tile:hover { background: rgba(180,70,50,0.16); }
-  .dark .home-bottom-tile { background: rgba(200,90,70,0.12); }
+  .home-bottom-tile:hover { background: rgba(var(--color-primary-600), 0.18); }
+  .dark .home-bottom-tile { background: rgba(var(--color-primary-400), 0.14); }
+  .dark .home-bottom-tile:hover { background: rgba(var(--color-primary-400), 0.24); }
   .home-bottom-tile h3 { margin: 0; font-size: 1.05rem; font-weight: 600; }
 </style>
 

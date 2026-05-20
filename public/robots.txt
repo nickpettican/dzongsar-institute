@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://dzongsarinstitute.org.in/sitemap.xml
